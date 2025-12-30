@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this release, please cite it."
+title: "Antigence Alpha"
+authors:
+  - family-names: "Lee"
+    given-names: "Byron"
+version: "v0.0-alpha"
+date-released: "2025-12-29"
+license: "CC-BY-4.0"
+repository-code: "https://github.com/biobitworks/immunos"
+url: "https://github.com/biobitworks/immunos"
+abstract: >-
+  Alpha snapshot of Antigence™ (TM pending) materials, including Tier 0 hypothesis
+  and software overview, Tier 1 evaluation outline, branding and lexicon, and a
+  draft announcement post.

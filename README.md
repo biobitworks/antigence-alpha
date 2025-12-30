@@ -1,7 +1,7 @@
-# Antigence Early (Alpha)
+# Antigence Alpha
 
 Early, curated package for Antigence™ (TM pending) and immunOS Tier 0 materials.
-This is a snapshot for early external sharing and does not replace the canonical sources.
+This is a snapshot for alpha-stage external sharing and does not replace the canonical sources.
 
 ## Version
 - Label: v0.0-alpha
@@ -15,7 +15,7 @@ This is a snapshot for early external sharing and does not replace the canonical
 
 ## Contents
 ```
-antigence-early/
+antigence-alpha/
 ├── blog/
 │   └── antigence-tier0-zenodo-substack.md
 ├── docs/
@@ -24,6 +24,7 @@ antigence-early/
 │   └── pitch.md
 ├── manuscript/
 │   ├── immunos-preprint-tier0.md
+│   ├── immunos-preprint-tier0-short.md
 │   └── immunos-preprint-tier1-outline.md
 └── README.md
 ```
