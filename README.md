@@ -2,6 +2,7 @@
 
 Early, curated package for Antigence™ (TM pending) and immunOS Tier 0 materials.
 This is a snapshot for alpha-stage external sharing and does not replace the canonical sources.
+Public repo: https://github.com/biobitworks/antigence-alpha
 
 ## Version
 - Label: v0.0-alpha
