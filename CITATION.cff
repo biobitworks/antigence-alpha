@@ -1,15 +1,15 @@
 cff-version: 1.2.0
 message: "If you use this release, please cite it."
-title: "Antigence Alpha"
+title: "Antigence™ Platform (v0.2.0-alpha)"
 authors:
   - family-names: "Lee"
     given-names: "Byron"
-version: "v0.0-alpha"
-date-released: "2025-12-29"
+version: "v0.2.0-alpha"
+date-released: "2025-12-30"
 license: "CC-BY-4.0"
-repository-code: "https://github.com/biobitworks/immunos"
-url: "https://github.com/biobitworks/immunos"
+repository-code: "https://github.com/biobitworks/antigence-alpha"
+url: "https://github.com/biobitworks/antigence-alpha"
 abstract: >-
-  Alpha snapshot of Antigence™ (TM pending) materials, including Tier 0 hypothesis
+  Release v0.2.0-alpha of the Antigence™ Platform (powered by immunOS), featuring the
   and software overview, Tier 1 evaluation outline, branding and lexicon, and a
   draft announcement post.
