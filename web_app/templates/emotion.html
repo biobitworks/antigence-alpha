@@ -1,0 +1,261 @@
+{% extends "base.html" %}
+
+{% block title %}Emotion Detection - IMMUNOS-MCP{% endblock %}
+
+{% block breadcrumb %}
+<nav aria-label="breadcrumb" class="container mt-3">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        <li class="breadcrumb-item active">Emotion Detection</li>
+    </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Header -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <h1><i class="fas fa-smile text-primary"></i> Emotion Detection</h1>
+            <p class="lead">Analyze text for emotional content using immune-inspired pattern recognition</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Input Panel -->
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-primary text-white">
+                    <i class="fas fa-keyboard"></i> Text Input
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label for="textInput" class="form-label">Enter text to analyze:</label>
+                        <textarea class="form-control" id="textInput" rows="6" placeholder="I am so happy today! Everything is going wonderfully."></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Quick Examples:</label>
+                        <div class="d-flex flex-wrap gap-2">
+                            <button class="btn btn-outline-warning btn-sm" onclick="setExample('joy')">
+                                <i class="fas fa-smile"></i> Joy
+                            </button>
+                            <button class="btn btn-outline-info btn-sm" onclick="setExample('sadness')">
+                                <i class="fas fa-sad-tear"></i> Sadness
+                            </button>
+                            <button class="btn btn-outline-danger btn-sm" onclick="setExample('anger')">
+                                <i class="fas fa-angry"></i> Anger
+                            </button>
+                            <button class="btn btn-outline-secondary btn-sm" onclick="setExample('fear')">
+                                <i class="fas fa-grimace"></i> Fear
+                            </button>
+                            <button class="btn btn-outline-success btn-sm" onclick="setExample('neutral')">
+                                <i class="fas fa-meh"></i> Neutral
+                            </button>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary w-100" id="analyzeBtn" onclick="analyzeEmotion()">
+                        <i class="fas fa-brain"></i> Analyze Emotion
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Panel -->
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-dark text-white">
+                    <i class="fas fa-chart-pie"></i> Analysis Results
+                </div>
+                <div class="card-body">
+                    <div id="resultsPanel" class="text-center text-muted py-4">
+                        <i class="fas fa-heart fa-4x mb-3"></i>
+                        <p>Submit text to see emotion analysis</p>
+                    </div>
+                    <div id="chartPanel" style="display: none;">
+                        <div id="emotionChart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Emotion Breakdown -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-theater-masks"></i> Emotion Probabilities
+                </div>
+                <div class="card-body" id="emotionBars">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between">
+                                    <span><i class="fas fa-smile text-warning"></i> Joy</span>
+                                    <span id="joyValue">0%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" id="joyBar" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between">
+                                    <span><i class="fas fa-sad-tear text-info"></i> Sadness</span>
+                                    <span id="sadnessValue">0%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-info" id="sadnessBar" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between">
+                                    <span><i class="fas fa-angry text-danger"></i> Anger</span>
+                                    <span id="angerValue">0%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-danger" id="angerBar" style="width: 0%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between">
+                                    <span><i class="fas fa-grimace text-secondary"></i> Fear</span>
+                                    <span id="fearValue">0%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-secondary" id="fearBar" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between">
+                                    <span><i class="fas fa-surprise text-purple"></i> Surprise</span>
+                                    <span id="surpriseValue">0%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar" id="surpriseBar" style="width: 0%; background-color: #9b59b6"></div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between">
+                                    <span><i class="fas fa-meh text-success"></i> Neutral</span>
+                                    <span id="neutralValue">0%</span>
+                                </div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" id="neutralBar" style="width: 0%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+const examples = {
+    joy: "I am so happy today! This is the best day of my life. Everything is wonderful!",
+    sadness: "I feel really down and depressed. Nothing seems to be going right lately.",
+    anger: "This is absolutely infuriating! I can't believe they would do something so stupid!",
+    fear: "I'm terrified about what might happen. The uncertainty is overwhelming.",
+    neutral: "The meeting is scheduled for 3pm tomorrow. Please bring the quarterly reports."
+};
+
+function setExample(emotion) {
+    document.getElementById('textInput').value = examples[emotion];
+}
+
+async function analyzeEmotion() {
+    const text = document.getElementById('textInput').value;
+    const resultsPanel = document.getElementById('resultsPanel');
+    const chartPanel = document.getElementById('chartPanel');
+    const analyzeBtn = document.getElementById('analyzeBtn');
+
+    if (!text.trim()) {
+        alert('Please enter some text to analyze');
+        return;
+    }
+
+    // Update UI
+    analyzeBtn.disabled = true;
+    analyzeBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Analyzing...';
+    resultsPanel.innerHTML = '<div class="text-center py-4"><i class="fas fa-spinner fa-spin fa-3x"></i><p class="mt-3">Processing emotions...</p></div>';
+
+    try {
+        const response = await fetch('/api/detect_emotion', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ text, modality: 'text' })
+        });
+
+        const result = await response.json();
+        displayResults(result);
+    } catch (error) {
+        resultsPanel.innerHTML = `<div class="alert alert-danger">Error: ${error.message}</div>`;
+    } finally {
+        analyzeBtn.disabled = false;
+        analyzeBtn.innerHTML = '<i class="fas fa-brain"></i> Analyze Emotion';
+    }
+}
+
+function displayResults(result) {
+    const resultsPanel = document.getElementById('resultsPanel');
+    const chartPanel = document.getElementById('chartPanel');
+
+    // Get emotion icon
+    const emotionIcons = {
+        joy: 'smile',
+        sadness: 'sad-tear',
+        anger: 'angry',
+        fear: 'grimace',
+        surprise: 'surprise',
+        neutral: 'meh'
+    };
+    const icon = emotionIcons[result.dominant_emotion] || 'meh';
+
+    resultsPanel.innerHTML = `
+        <div class="text-center">
+            <i class="fas fa-${icon} fa-5x text-primary mb-3"></i>
+            <h3>${result.dominant_emotion.charAt(0).toUpperCase() + result.dominant_emotion.slice(1)}</h3>
+            <p class="text-muted">Confidence: ${(result.confidence * 100).toFixed(1)}%</p>
+        </div>
+    `;
+
+    // Update probability bars
+    const probs = result.probabilities || {};
+    updateBar('joy', probs.joy || 0);
+    updateBar('sadness', probs.sadness || 0);
+    updateBar('anger', probs.anger || 0);
+    updateBar('fear', probs.fear || 0);
+    updateBar('surprise', probs.surprise || 0);
+    updateBar('neutral', probs.neutral || 0);
+
+    // Show pie chart
+    chartPanel.style.display = 'block';
+    const labels = Object.keys(probs);
+    const values = Object.values(probs);
+
+    Plotly.newPlot('emotionChart', [{
+        values: values,
+        labels: labels,
+        type: 'pie',
+        marker: {
+            colors: ['#f1c40f', '#3498db', '#e74c3c', '#95a5a6', '#9b59b6', '#2ecc71']
+        }
+    }], {
+        margin: { t: 20, b: 20, l: 20, r: 20 },
+        height: 200,
+        showlegend: false
+    });
+}
+
+function updateBar(emotion, value) {
+    const pct = (value * 100).toFixed(1);
+    document.getElementById(emotion + 'Value').textContent = pct + '%';
+    document.getElementById(emotion + 'Bar').style.width = pct + '%';
+}
+</script>
+{% endblock %}

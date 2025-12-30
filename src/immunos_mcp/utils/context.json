@@ -1,0 +1,7 @@
+{
+  "generated_at_utc": "2025-12-30T18:53:00.853277Z",
+  "name": "utils",
+  "notes": "Samples: __pycache__/, network.py",
+  "path": "immunos-mcp/src/immunos_mcp/utils",
+  "summary": "Holds utils resources within immunos mcp; examples: __pycache__/, network.py."
+}
