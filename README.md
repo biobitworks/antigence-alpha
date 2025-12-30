@@ -1,28 +1,21 @@
-# IMMUNOS-MCP
+# Antigence™ Platform
+
+![Antigence Dashboard](web_app/static/dashboard_preview.png)
 
 ## Summary
-Contains 8 subdirectories and 15 files. Key subfolders: config/, docs/, examples/, logs/, scripts/, src/, ....
-
-
-**Artificial Immune System Multi-Agent System (AIS) with optional MCP packaging**
-
-IMMUNOS is a standalone multi-agent system implementing biological immune system principles for adaptive pattern recognition, anomaly detection, and content validation using multiple specialized AI agents. MCP is optional and can be used for packaging or external integration.
-
-## Overview
-
-**Project note**: ChatGPT is now actively working on this codebase alongside other agents.
+The **Antigence™ Platform** (powered by immunOS) is a local-first research verification system implementing biological immune system principles. It combines adaptive pattern recognition (B-Cells) with negative selection (NK-Cells) to detect anomalies, hallucinations, and security threats in multi-modal data.
 
 IMMUNOS-MCP creates a multi-agent system where each agent plays a specific immune cell role:
 
-| Immune Component | AI Agent Role | Capabilities |
-|-----------------|---------------|--------------|
-| **T Helper Cells** | Orchestrator | Coordinates multi-agent workflows, routes tasks |
-| **B Cells** | Pattern Matcher | Recognizes specific patterns, learns from examples |
-| **NK Cells** | Anomaly Detector | Detects novel threats without prior training (Negative Selection) |
-| **Dendritic Cells** | Context Processor | Extracts features, processes signals |
-| **Memory Cells** | Knowledge Cache | Stores and retrieves learned patterns |
-| **T Killer Cells** | Validator | Quality control, adversarial detection |
-| **T Regulatory Cells** | Calibrator | Confidence calibration, threshold adjustment |
+| Immune Component       | AI Agent Role     | Capabilities                                                      |
+| ---------------------- | ----------------- | ----------------------------------------------------------------- |
+| **T Helper Cells**     | Orchestrator      | Coordinates multi-agent workflows, routes tasks                   |
+| **B Cells**            | Pattern Matcher   | Recognizes specific patterns, learns from examples                |
+| **NK Cells**           | Anomaly Detector  | Detects novel threats without prior training (Negative Selection) |
+| **Dendritic Cells**    | Context Processor | Extracts features, processes signals                              |
+| **Memory Cells**       | Knowledge Cache   | Stores and retrieves learned patterns                             |
+| **T Killer Cells**     | Validator         | Quality control, adversarial detection                            |
+| **T Regulatory Cells** | Calibrator        | Confidence calibration, threshold adjustment                      |
 
 ## Architecture
 
