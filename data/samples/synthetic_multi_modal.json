@@ -1,0 +1,42 @@
+[
+    {
+        "id": "sample_001",
+        "domain": "security",
+        "modality": "code",
+        "content": "import os; os.system('rm -rf /')",
+        "label": "unsafe",
+        "metadata": {
+            "cwe": "CWE-78",
+            "severity": "high"
+        }
+    },
+    {
+        "id": "sample_002",
+        "domain": "emotion",
+        "modality": "text",
+        "content": "I am extremely happy with this result!",
+        "label": "joy",
+        "metadata": {
+            "intensity": 0.9
+        }
+    },
+    {
+        "id": "sample_003",
+        "domain": "network",
+        "modality": "vector",
+        "content": [
+            0.1,
+            0.5,
+            0.9,
+            0.0,
+            0.2,
+            0.1,
+            0.8,
+            0.4
+        ],
+        "label": "normal",
+        "metadata": {
+            "protocol": "tcp"
+        }
+    }
+]
